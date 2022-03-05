@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="p-4 m-4">
+            <div class="col-lg-5 mx-auto border rounded pt-4">
+                <h3 class="alert alert-light border rounded">Create An Account</h3>
+                <form action="/signup/" method="post">
+                    {% csrf_token %}
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">{{ error }}</div>
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="exampleInputFirstName">First Name</label>
+                        <input type="text" class="form-control form-control-sm" id="exampleInputFirstName" aria-describedby="emailHelp"
+                            placeholder="Enter First Name" name="first_name" value="{{ values.first_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputLastName">Last Name</label>
+                        <input type="text" class="form-control form-control-sm" id="exampleInputLastName" aria-describedby="emailHelp"
+                            placeholder="Enter Last Name" name="last_name" value="{{ values.last_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPhoneNumber">Phone Number</label>
+                        <input type="text" class="form-control form-control-sm" id="exampleInputPhoneNumber"
+                            aria-describedby="emailHelp" placeholder="Enter Phone Number" name="phone" value="{{ values.phone }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter email" name="email" value="{{ values.email }}">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Password" name="password">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
